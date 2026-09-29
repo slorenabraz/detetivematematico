@@ -1,0 +1,8 @@
+projeto-educacional/
+├── package.json
+├── server.js
+├── database.db (gerado automaticamente)
+└── public/
+    ├── index.html
+    ├── style.css
+    └── app.js

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Plataforma Educacional de Matemática</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>📐 MathEdu Fun</h1>
+    <nav>
+      <button onclick="showPage('inicio')">Início</button>
+      <button onclick="showPage('desafios')" id="nav-desafios" class="hidden">Desafios</button>
+      <button onclick="showPage('resultados')" id="nav-resultados" class="hidden">Meus Resultados</button>
+      <button onclick="showPage('turmas')" id="nav-turmas" class="hidden">Turmas</button>
+      <button onclick="showPage('professores')">Professores</button>
+      <button onclick="showPage('ranking')">Ranking</button>
+      <button id="btn-login" onclick="showPage('auth')">Login / Cadastro</button>
+      <button id="btn-logout" class="hidden" onclick="logout()">Sair</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Aba Início -->
+    <section id="page-inicio" class="page">
+      <h2>Bem-vindo à Jornada Matemática! 🚀</h2>
+      <p>Aprenda Pitágoras, Lei dos Senos, Cossenos e Semelhança de forma interativa e divertida.</p>
+      <div class="ia-banner">
+        <!-- Imagem pedagógica ilustrativa gerada via IA -->
+        <img src="https://image.pollinations.ai/prompt/fun%20educational%20math%20illustration%20for%20kids%20pythagoras%20geometry%20colorful%203d?width=800&height=300&nologo=true" alt="Ilustração Educacional de Matemática gerada por IA">
+      </div>
+    </section>
+
+    <!-- Aba Cadastro / Login -->
+    <section id="page-auth" class="page hidden">
+      <h2>Acesso ao Sistema</h2>
+      <div class="forms-container">
+        <form id="form-login" onsubmit="handleLogin(event)">
+          <h3>Login</h3>
+          <input type="email" id="login-email" placeholder="Seu E-mail Institucional" required>
+          <input type="password" id="login-senha" placeholder="Sua Senha" required>
+          <button type="submit">Entrar</button>
+        </form>
+
+        <form id="form-register" onsubmit="handleRegister(event)">
+          <h3>Cadastro</h3>
+          <input type="text" id="reg-nome" placeholder="Nome Completo" required>
+          <select id="reg-tipo" onchange="toggleSerieSelect()">
+            <option value="aluno">Aluno</option>
+            <option value="professor">Professor</option>
+          </select>
+          <input type="email" id="reg-email" placeholder="000...SP@aluno.educacao.sp.gov.br" required>
+          <input type="password" id="reg-senha" placeholder="Senha" required>
+          <div id="group-serie">
+            <select id="reg-serie">
+              <option value="6º Ano Fundamental">6º Ano Fundamental</option>
+              <option value="7º Ano Fundamental">7º Ano Fundamental</option>
+              <option value="8º Ano Fundamental">8º Ano Fundamental</option>
+              <option value="9º Ano Fundamental">9º Ano Fundamental</option>
+              <option value="1º Ano Ensino Médio">1º Ano Ensino Médio</option>
+              <option value="2º Ano Ensino Médio">2º Ano Ensino Médio</option>
+              <option value="3º Ano Ensino Médio">3º Ano Ensino Médio</option>
+            </select>
+          </div>
+          <button type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Aba Desafios -->
+    <section id="page-desafios" class="page hidden">
+      <h2>Etapas de Desafio</h2>
+      <div id="quiz-container">
+        <h3 id="quiz-etapa-titulo">Etapa 1: Teorema de Pitágoras</h3>
+        <div id="cronometro" class="timer">Tempo: 60s</div>
+        <p id="quiz-pergunta">Qual das equações abaixo NÃO representa o Teorema de Pitágoras?</p>
+        <div id="quiz-opcoes"></div>
+        <p id="quiz-msg"></p>
+      </div>
+    </section>
+
+    <!-- Aba Ranking -->
+    <section id="page-ranking" class="page hidden">
+      <h2>Ranking Geral</h2>
+      <ul id="lista-ranking"></ul>
+    </section>
+
+    <!-- Aba Professores -->
+    <section id="page-professores" class="page hidden">
+      <h2>Corpo Docente</h2>
+      <ul id="lista-professores"></ul>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
